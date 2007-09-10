@@ -1,0 +1,46 @@
+diff -urp isync-1.0.3.orig/src/compat/convert.c isync-1.0.3/src/compat/convert.c
+--- isync-1.0.3.orig/src/compat/convert.c	2007-09-09 22:59:01.000000000 +0200
++++ isync-1.0.3/src/compat/convert.c	2007-09-09 22:58:14.000000000 +0200
+@@ -145,7 +145,7 @@ convert( config_t *box )
+ 			fputs( "dbcreate failed\n", stderr );
+ 			goto err2;
+ 		}
+-		if (db->open( db, 0, iumname, 0, DB_HASH, 0, 0 )) {
++		if ((db->open)( db, 0, iumname, 0, DB_HASH, 0, 0 )) {
+ 			fputs( "cannot open db\n", stderr );
+ 			db->close( db, 0 );
+ 			goto err2;
+Pouze v isync-1.0.3/src/compat: convert.c.orig
+diff -urp isync-1.0.3.orig/src/drv_maildir.c isync-1.0.3/src/drv_maildir.c
+--- isync-1.0.3.orig/src/drv_maildir.c	2007-09-09 22:59:01.000000000 +0200
++++ isync-1.0.3/src/drv_maildir.c	2007-09-09 23:01:55.000000000 +0200
+@@ -497,7 +497,7 @@ maildir_scan( maildir_store_t *ctx, msgl
+ 				fputs( "Maildir error: db_create() failed\n", stderr );
+ 				return DRV_BOX_BAD;
+ 			}
+-			if (tdb->open( tdb, 0, 0, 0, DB_HASH, DB_CREATE, 0 )) {
++			if ((tdb->open)( tdb, 0, 0, 0, DB_HASH, DB_CREATE, 0 )) {
+ 				fputs( "Maildir error: tdb->open() failed\n", stderr );
+ 				tdb->close( tdb, 0 );
+ 				return DRV_BOX_BAD;
+@@ -781,7 +781,7 @@ maildir_select( store_t *gctx, int minui
+ 			fputs( "Maildir error: db_create() failed\n", stderr );
+ 			goto bork;
+ 		}
+-		if ((ret = ctx->db->open( ctx->db, 0, uvpath, 0, DB_HASH, DB_CREATE, 0 ))) {
++		if ((ret = (ctx->db->open)( ctx->db, 0, uvpath, 0, DB_HASH, DB_CREATE, 0 ))) {
+ 			ctx->db->err( ctx->db, ret, "Maildir error: db->open(%s)", uvpath );
+ 		  dbork:
+ 			ctx->db->close( ctx->db, 0 );
+diff -urp isync-1.0.3.orig/src/mdconvert.c isync-1.0.3/src/mdconvert.c
+--- isync-1.0.3.orig/src/mdconvert.c	2007-09-09 22:59:01.000000000 +0200
++++ isync-1.0.3/src/mdconvert.c	2007-09-09 23:02:16.000000000 +0200
+@@ -96,7 +96,7 @@ convert( const char *box, int altmap )
+ 		fputs( "Error: db_create() failed\n", stderr );
+ 		goto tbork;
+ 	}
+-	if ((ret = db->open( db, 0, dbpath, 0, DB_HASH, DB_CREATE, 0 ))) {
++	if ((ret = (db->open)( db, 0, dbpath, 0, DB_HASH, DB_CREATE, 0 ))) {
+ 		db->err( db, ret, "Error: db->open(%s)", dbpath );
+ 	  dbork:
+ 		db->close( db, 0 );

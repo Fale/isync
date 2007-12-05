@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -47,6 +47,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
 
 %changelog
+* Wed Dec 05 2007 Release Engineering <rel-eng at fedoraproject dot org> - 1.0.3-4
+ - Rebuild for deps
+
 * Sun Sep 09 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-3
 - Fix code for the case where open() is a macro. (thanks to Marek Mahut)
 - Cosmetic fixes. (#282261) (thanks to Till Maas)

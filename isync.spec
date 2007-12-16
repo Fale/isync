@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -8,6 +8,7 @@ License:        GPLv2+
 URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:         isync-1.0.3-open.patch
+Patch1:         isync-1.0.3-args.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  db4-devel openssl-devel
@@ -20,7 +21,8 @@ IMAP-disconnected mode.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .open
+%patch1 -p1 -b .args
 
 %build
 %configure
@@ -47,8 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
 
 %changelog
-* Wed Dec 05 2007 Release Engineering <rel-eng at fedoraproject dot org> - 1.0.3-4
- - Rebuild for deps
+* Sun Dec 16 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-5
+- mbsync was ignoring option letters from last argument (#425838)
 
 * Sun Sep 09 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-3
 - Fix code for the case where open() is a macro. (thanks to Marek Mahut)

@@ -19,14 +19,17 @@ Maildir and IMAP4 mailboxes are supported.  New messages, message deletions
 and flag changes can be propagated both ways.  isync is suitable for use in
 IMAP-disconnected mode.
 
+
 %prep
 %setup -q
 %patch0 -p1 -b .open
 %patch1 -p1 -b .args
 
+
 %build
 %configure
 make %{?_smp_mflags}
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -36,8 +39,10 @@ make install DESTDIR=$RPM_BUILD_ROOT
 # to robustness.
 rm -r $RPM_BUILD_ROOT%{_datadir}/doc/isync
 
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
 
 %files
 %defattr(-,root,root,-)
@@ -47,6 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/get-cert
 %{_mandir}/man1/*
 %doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
+
 
 %changelog
 * Sun Dec 16 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-5

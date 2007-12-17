@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.3
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -9,6 +9,7 @@ URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:         isync-1.0.3-open.patch
 Patch1:         isync-1.0.3-args.patch
+Patch2:         isync-1.0.3-search.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  db4-devel openssl-devel
@@ -24,6 +25,7 @@ IMAP-disconnected mode.
 %setup -q
 %patch0 -p1 -b .open
 %patch1 -p1 -b .args
+%patch2 -p1 -b .search
 
 
 %build
@@ -55,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Dec 17 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-6
+- gmail returns SEARCH with no argument (#420721)
+
 * Sun Dec 16 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-5
 - mbsync was ignoring option letters from last argument (#425838)
 

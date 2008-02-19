@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.3
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -57,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 1.0.3-7
+- Autorebuild for GCC 4.3
+
 * Mon Dec 17 2007 Lubomir Kundrak <lkundrak@redhat.com> 1.0.3-6
 - gmail returns SEARCH with no argument (#420721)
 

@@ -1,15 +1,12 @@
 Name:           isync
-Version:        1.0.3
-Release:        7%{?dist}
+Version:        1.0.4
+Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
 License:        GPLv2+
 URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Patch0:         isync-1.0.3-open.patch
-Patch1:         isync-1.0.3-args.patch
-Patch2:         isync-1.0.3-search.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  db4-devel openssl-devel
@@ -23,9 +20,6 @@ IMAP-disconnected mode.
 
 %prep
 %setup -q
-%patch0 -p1 -b .open
-%patch1 -p1 -b .args
-%patch2 -p1 -b .search
 
 
 %build
@@ -57,6 +51,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Feb 23 2008 Lubomir Kundrak <lkundrak@redhat.com> 1.0.4-1
+- 1.0.4
+- Drop upstreamed patches (all!)
+
 * Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 1.0.3-7
 - Autorebuild for GCC 4.3
 

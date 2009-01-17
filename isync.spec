@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -51,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jan 17 2009 Tomas Mraz <tmraz@redhat.com> 1.0.4-2
+- rebuild with new openssl
+
 * Sat Feb 23 2008 Lubomir Kundrak <lkundrak@redhat.com> 1.0.4-1
 - 1.0.4
 - Drop upstreamed patches (all!)

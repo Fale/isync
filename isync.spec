@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.4
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -9,7 +9,8 @@ URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  db4-devel openssl-devel
+BuildRequires:  db4-devel
+BuildRequires:  openssl-devel
 
 %description
 isync is a command line application which synchronizes mailboxes; currently
@@ -20,7 +21,12 @@ IMAP-disconnected mode.
 
 %prep
 %setup -q
-
+# Convert to utf-8
+for file in ChangeLog; do
+    mv $file timestamp
+    iconv -f ISO-8859-1 -t UTF-8 -o $file timestamp
+    touch -r timestamp $file
+done
 
 %build
 %configure
@@ -28,29 +34,34 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+rm -rf %{buildroot}
+make install DESTDIR=%{buildroot} INSTALL="install -p"
 # Remove copy of documentation files installed by package's buildsystem.
 # Preverred over patching Makefile.am an regenerating Makefile.in due
 # to robustness.
-rm -r $RPM_BUILD_ROOT%{_datadir}/doc/isync
+rm -r %{buildroot}%{_datadir}/doc/isync
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %files
 %defattr(-,root,root,-)
+%doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
 %{_bindir}/isync
 %{_bindir}/mbsync
 %{_bindir}/mdconvert
 %{_bindir}/get-cert
 %{_mandir}/man1/*
-%doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
+
 
 
 %changelog
+* Mon Jan 19 2009 Fabian Affolter <fabian@bernewireless.net> 1.0.4-3
+- Preserved time stamps
+- Fixed encoding error
+
 * Sat Jan 17 2009 Tomas Mraz <tmraz@redhat.com> 1.0.4-2
 - rebuild with new openssl
 

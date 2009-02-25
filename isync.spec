@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.4
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -58,6 +58,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.4-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Mon Jan 19 2009 Fabian Affolter <fabian@bernewireless.net> 1.0.4-3
 - Preserved time stamps
 - Fixed encoding error

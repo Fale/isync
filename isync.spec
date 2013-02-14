@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.0.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 Group:          Applications/Internet
@@ -58,6 +58,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.5-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Sat Aug 04 2012 Parag Nemade <paragn AT fedoraproject DOT org> - 1.0.5-3
 - Change BR: db4-devel to libdb-devel
 

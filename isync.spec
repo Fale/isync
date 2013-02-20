@@ -1,13 +1,11 @@
 Name:           isync
-Version:        1.0.5
-Release:        4%{?dist}
+Version:        1.0.6
+Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
-Group:          Applications/Internet
 License:        GPLv2+
 URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
@@ -17,7 +15,6 @@ isync is a command line application which synchronizes mailboxes; currently
 Maildir and IMAP4 mailboxes are supported.  New messages, message deletions
 and flag changes can be propagated both ways.  isync is suitable for use in
 IMAP-disconnected mode.
-
 
 %prep
 %setup -q
@@ -32,22 +29,14 @@ done
 %configure
 make %{?_smp_mflags}
 
-
 %install
-rm -rf %{buildroot}
 make install DESTDIR=%{buildroot} INSTALL="install -p"
 # Remove copy of documentation files installed by package's buildsystem.
 # Preverred over patching Makefile.am an regenerating Makefile.in due
 # to robustness.
 rm -r %{buildroot}%{_datadir}/doc/isync
 
-
-%clean
-rm -rf %{buildroot}
-
-
 %files
-%defattr(-,root,root,-)
 %doc AUTHORS COPYING NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
 %{_bindir}/isync
 %{_bindir}/mbsync
@@ -55,9 +44,10 @@ rm -rf %{buildroot}
 %{_bindir}/get-cert
 %{_mandir}/man1/*
 
-
-
 %changelog
+* Wed Feb 20 2013 Fabian Affolter <mail@fabian-affolter.ch> 1.0.6-1
+- Updated to new upstream version 1.0.6
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.5-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 

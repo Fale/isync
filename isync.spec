@@ -1,5 +1,5 @@
 Name:           isync
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
@@ -45,14 +45,17 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jun 05 2014 Fabian Affolter <mail@fabian-affolter.ch> - 1.1.1-1
+- Update to new upstream version 1.1.1
+
 * Sat Dec 21 2013 Fabian Affolter <mail@fabian-affolter.ch> - 1.1.0-1
-- Updated to new upstream version 1.1.0
+- Update to new upstream version 1.1.0
 
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
 * Wed Feb 20 2013 Fabian Affolter <mail@fabian-affolter.ch> 1.0.6-1
-- Updated to new upstream version 1.0.6
+- Update to new upstream version 1.0.6
 
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.5-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
@@ -64,7 +67,7 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
 * Sun Apr 29 2012 Fabian Affolter <mail@fabian-affolter.ch> 1.0.5-1
-- Updated to new upstream version 1.0.5
+- Update to new upstream version 1.0.5
 
 * Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.4-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
@@ -73,7 +76,7 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
 * Fri Aug 21 2009 Tomas Mraz <tmraz@redhat.com> - 1.0.4-6
-- rebuilt with new openssl
+- Rebuilt with new openssl
 
 * Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.4-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
@@ -82,14 +85,14 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
 * Mon Jan 19 2009 Fabian Affolter <mail@fabian-affolter.ch> 1.0.4-3
-- Preserved time stamps
-- Fixed encoding error
+- Preserve time stamps
+- Fixe encoding error
 
 * Sat Jan 17 2009 Tomas Mraz <tmraz@redhat.com> 1.0.4-2
-- rebuild with new openssl
+- Rebuild with new openssl
 
 * Sat Feb 23 2008 Lubomir Kundrak <lkundrak@redhat.com> 1.0.4-1
-- 1.0.4
+- Update to 1.0.4
 - Drop upstreamed patches (all!)
 
 * Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 1.0.3-7

@@ -1,5 +1,5 @@
 Name:           isync
-Version:        1.1.2
+Version:        1.2.0
 Release:        1%{?dist}
 Summary:        A tool to synchronize IMAP4 and Maildir mailboxes
 
@@ -45,6 +45,9 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_mandir}/man1/*
 
 %changelog
+* Sun Apr 05 2015 Fabian Affolter <mail@fabian-affolter.ch> - 1.2.0-1
+- Update to new upstream version 1.2.0 (rhbz#1208851, rhbz#1193063)
+
 * Fri Jan 23 2015 Fabian Affolter <mail@fabian-affolter.ch> - 1.1.2-1
 - Update to new upstream version 1.1.2 (rhbz#1183529)
 

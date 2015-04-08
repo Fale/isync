@@ -49,7 +49,7 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 
 %changelog
 * Tue Apr 07 2015 Ralph Bean <rbean@redhat.com> - 1.2.0-2
-- Build against cyrus-sasl-devel.
+- Build against cyrus-sasl-devel
 
 * Sun Apr 05 2015 Fabian Affolter <mail@fabian-affolter.ch> - 1.2.0-1
 - Update to new upstream version 1.2.0 (rhbz#1208851, rhbz#1193063)

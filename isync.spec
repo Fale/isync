@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A tool to synchronize IMAP4 and Maildir mailboxes
 
 License:        GPLv2+
@@ -9,6 +9,9 @@ Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.
 
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
+BuildRequires:  cyrus-sasl-devel
+
+Requires:       cyrus-sasl
 
 %description
 isync is a command line application which synchronizes mailboxes; currently
@@ -45,6 +48,9 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_mandir}/man1/*
 
 %changelog
+* Tue Apr 07 2015 Ralph Bean <rbean@redhat.com> - 1.2.0-2
+- Build against cyrus-sasl-devel.
+
 * Sun Apr 05 2015 Fabian Affolter <mail@fabian-affolter.ch> - 1.2.0-1
 - Update to new upstream version 1.2.0 (rhbz#1208851, rhbz#1193063)
 

@@ -1,5 +1,5 @@
 Name:           isync
-Version:        1.2.3
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        A tool to synchronize IMAP4 and Maildir mailboxes
 
@@ -7,6 +7,7 @@ License:        GPLv2+
 URL:            http://isync.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 
+BuildRequires:  perl
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
@@ -45,10 +46,13 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_bindir}/isync
 %{_bindir}/mbsync
 %{_bindir}/mdconvert
-%{_bindir}/get-cert
+%{_bindir}/mbsync-get-cert
 %{_mandir}/man1/*
 
 %changelog
+* Sun Jan 07 2018 Michael J Gruber <mjg@fedoraproject.org> - 1.3.0-1
+- Update to new upstream version 1.3.0 (rhbz#1497574)
+
 * Sun Oct 01 2017 Fabian Affolter <mail@fabian-affolter.ch> - 1.2.3-1
 - Update to new upstream version 1.2.3 (rhbz#1497526)
 

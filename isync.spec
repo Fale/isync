@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A tool to synchronize IMAP4 and Maildir mailboxes
 
 License:        GPLv2+
@@ -50,6 +50,9 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Wed May 29 2019 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.1-1
 - Support for SNI (rhbz#1632958)
 - Update to new upstream version 1.3.1 (rhbz#1714679)

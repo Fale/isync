@@ -11,6 +11,7 @@ BuildRequires:  perl
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
+BuildRequires: make
 
 Requires:       cyrus-sasl
 

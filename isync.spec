@@ -1,6 +1,6 @@
 Name:           isync
-Version:        1.3.3
-Release:        2%{?dist}
+Version:        1.3.4
+Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 License:        GPLv2+
@@ -51,17 +51,20 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 %{_mandir}/man1/*
 
 %changelog
+* Wed Feb 03 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.4-1
+- Update to latest upstream release 1.3.4 (#1924724)
+
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
 * Thu Aug 06 2020 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.3-1
-- Update to latest upstream release 1.3.3 (rhbz#1865992)
+- Update to latest upstream release 1.3.3 (#1865992)
 
 * Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
 * Fri Jul 10 2020 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.2-1
-- Update to latest upstream release 1.3.2 (rhbz#1854842)
+- Update to latest upstream release 1.3.2 (#1854842)
 
 * Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
@@ -70,8 +73,8 @@ rm -r %{buildroot}%{_datadir}/doc/isync
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
 * Wed May 29 2019 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.1-1
-- Support for SNI (rhbz#1632958)
-- Update to new upstream version 1.3.1 (rhbz#1714679)
+- Support for SNI (#1632958)
+- Update to new upstream version 1.3.1 (#1714679)
 
 * Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild

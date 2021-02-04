@@ -1,5 +1,5 @@
 Name:           isync
-Version:        1.3.4
+Version:        1.4.0
 Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
@@ -11,14 +11,14 @@ BuildRequires:  perl
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
-BuildRequires: make
+BuildRequires:  make
 
 Requires:       cyrus-sasl
 
 %description
-isync is a command line application which synchronizes mailboxes. Currently
+mbsync is a command line application which synchronizes mailboxes. Currently
 Maildir and IMAP4 mailboxes are supported. New messages, message deletions
-and flag changes can be propagated both ways. isync is suitable for use in
+and flag changes can be propagated both ways. mbsync is suitable for use in
 IMAP-disconnected mode.
 
 %prep
@@ -39,18 +39,20 @@ done
 # Remove copy of documentation files installed by package's buildsystem.
 # Preverred over patching Makefile.am an regenerating Makefile.in due
 # to robustness.
-rm -r %{buildroot}%{_datadir}/doc/isync
+rm -r %{buildroot}%{_defaultdocdir}
 
 %files
-%doc AUTHORS NEWS README TODO ChangeLog src/mbsyncrc.sample src/compat/isyncrc.sample
+%doc AUTHORS NEWS README TODO ChangeLog src/mbsyncrc.sample
 %license COPYING
-%{_bindir}/isync
 %{_bindir}/mbsync
 %{_bindir}/mdconvert
 %{_bindir}/mbsync-get-cert
 %{_mandir}/man1/*
 
 %changelog
+* Thu Feb 04 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.4.0-1
+- Update to latest upstream release 1.4.0 (#1924724)
+
 * Wed Feb 03 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.3.4-1
 - Update to latest upstream release 1.3.4 (#1924724)
 

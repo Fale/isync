@@ -1,5 +1,5 @@
 Name:           isync
-Version:        1.4.0
+Version:        1.4.1
 Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
@@ -50,6 +50,10 @@ rm -r %{buildroot}%{_defaultdocdir}
 %{_mandir}/man1/*
 
 %changelog
+* Mon Feb 22 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.4.1-1
+- Update to latest upstream release 1.4.1 (#1931574)
+- Fix CVE-2021-20247 (#1931597, #1931597)
+
 * Thu Feb 04 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.4.0-1
 - Update to latest upstream release 1.4.0 (#1924724)
 

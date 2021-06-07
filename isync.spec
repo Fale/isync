@@ -1,17 +1,21 @@
 Name:           isync
-Version:        1.4.1
+Version:        1.4.2
 Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 License:        GPLv2+
 URL:            http://isync.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source1:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz.asc
+# needs manual removal of leftover html elements
+Source2:        http://keys.gnupg.net/pks/lookup?op=get&search=0xC17714F08D1BDBBA#./%{name}.keyring
 
 BuildRequires:  perl
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  make
+BuildRequires:  gnupg2
 
 Requires:       cyrus-sasl
 
@@ -22,7 +26,8 @@ and flag changes can be propagated both ways. mbsync is suitable for use in
 IMAP-disconnected mode.
 
 %prep
-%setup -q
+%{gpgverify} --keyring='%{SOURCE2}' --signature='%{SOURCE1}' --data='%{SOURCE0}'
+%autosetup
 # Convert to utf-8
 for file in ChangeLog; do
     mv $file timestamp
@@ -50,6 +55,11 @@ rm -r %{buildroot}%{_defaultdocdir}
 %{_mandir}/man1/*
 
 %changelog
+* Mon Jun  7 2021 Dan Čermák <dan.cermak@cgc-instruments.com> - 1.4.2-1
+- New upstream release 1.4.2
+- Fixes CVE-2021-3578
+- Fixes rhbz#1968431
+
 * Mon Feb 22 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.4.1-1
 - Update to latest upstream release 1.4.1 (#1931574)
 - Fix CVE-2021-20247 (#1931597, #1931598)

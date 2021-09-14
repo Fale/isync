@@ -1,6 +1,6 @@
 Name:           isync
 Version:        1.4.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 License:        GPLv2+
@@ -55,6 +55,9 @@ rm -r %{buildroot}%{_defaultdocdir}
 %{_mandir}/man1/*
 
 %changelog
+* Tue Sep 14 2021 Sahana Prasad <sahana@redhat.com> - 1.4.3-2
+- Rebuilt with OpenSSL 3.0.0
+
 * Thu Aug 26 2021 Fabian Affolter <mail@fabian-affolter.ch> - 1.4.3-1
 - Update to latest upstream release 1.4.3 (rhbz#1987273)
 

@@ -8,7 +8,7 @@ URL:            http://isync.sourceforge.net/
 Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz.asc
 # needs manual removal of leftover html elements
-Source2:        http://keys.gnupg.net/pks/lookup?op=get&search=0xC17714F08D1BDBBA#./%{name}.keyring
+Source2:        https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x63bfd037cad71e8dff3aea3ac17714f08d1bdbba#./%{name}.keyring
 
 BuildRequires:  perl
 BuildRequires:  libdb-devel

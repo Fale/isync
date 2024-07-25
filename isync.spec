@@ -1,9 +1,10 @@
 Name:           isync
 Version:        1.4.4
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
-License:        GPLv2+
+# Automatically converted from old format: GPLv2+ - review is highly recommended.
+License:        GPL-2.0-or-later
 URL:            http://isync.sourceforge.net/
 Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz.asc
@@ -57,6 +58,9 @@ rm -r %{buildroot}%{_defaultdocdir}
 %{_mandir}/man1/*
 
 %changelog
+* Fri Jul 26 2024 Miroslav Suchý <msuchy@redhat.com> - 1.4.4-10
+- convert license to SPDX
+
 * Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.4-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 

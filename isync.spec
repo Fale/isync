@@ -1,6 +1,6 @@
 Name:           isync
-Version:        1.4.4
-Release:        10%{?dist}
+Version:        1.5.0
+Release:        1%{?dist}
 Summary:        Tool to synchronize IMAP4 and Maildir mailboxes
 
 # Automatically converted from old format: GPLv2+ - review is highly recommended.
@@ -10,14 +10,14 @@ Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar
 Source1:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz.asc
 # needs manual removal of leftover html elements
 Source2:        https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x63bfd037cad71e8dff3aea3ac17714f08d1bdbba#./%{name}.keyring
-# https://sourceforge.net/p/isync/isync/ci/b6c36624f04cd388873785c0631df3f2f9ac4bf0/
-Patch0:         0001-work-around-unexpected-EOF-error-messages.patch
+# https://sourceforge.net/p/isync/patches/19/
+Patch0:         v2-0001-fix-compile-with-fno-lto.patch
 
 BuildRequires:  perl
 BuildRequires:  libdb-devel
 BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
-BuildRequires:  make
+BuildRequires:  automake
 BuildRequires:  gnupg2
 
 Requires:       cyrus-sasl
@@ -58,6 +58,10 @@ rm -r %{buildroot}%{_defaultdocdir}
 %{_mandir}/man1/*
 
 %changelog
+* Mon Aug 19 2024 Fabio Alessandro Locati <fale@fedoraproject.org> - 1.5.0-1
+- Update to 1.5.0, fixes rhbz#2302484
+- Fix crash caused by LTO, fixes rhbz#2302132
+
 * Fri Jul 26 2024 Miroslav Suchý <msuchy@redhat.com> - 1.4.4-10
 - convert license to SPDX
 

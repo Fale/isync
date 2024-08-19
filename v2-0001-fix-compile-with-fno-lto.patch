@@ -1,0 +1,25 @@
+From 62450520b31190d429d8851cba854e8c182a0d6a Mon Sep 17 00:00:00 2001
+From: Jarkko Sakkinen <jarkko.sakkinen@iki.fi>
+Date: Mon, 5 Aug 2024 17:31:35 +0300
+Subject: [PATCH v2] fix: compile with -fno-lto
+
+Signed-off-by: Jarkko Sakkinen <jarkko.sakkinen@iki.fi>
+---
+ src/Makefile.am | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index d6e0407..184d288 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -15,6 +15,7 @@ noinst_HEADERS = \
+ 	sync.h sync_p.h \
+ 	main_p.h
+ mbsync_LDADD = $(DB_LIBS) $(SSL_LIBS) $(SOCK_LIBS) $(SASL_LIBS) $(Z_LIBS) $(KEYCHAIN_LIBS)
++CFLAGS += -fno-lto
+ 
+ drv_proxy.$(OBJEXT): drv_proxy.inc
+ drv_proxy.inc: $(srcdir)/driver.h $(srcdir)/drv_proxy.c $(srcdir)/drv_proxy_gen.pl
+-- 
+2.45.2
+
